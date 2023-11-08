@@ -1,0 +1,54 @@
+<h1>Nuevo usuario</h1>
+
+<%= form_with model: @user do |form| %>
+    <% @user.errors.full_messages.each do |error| %>
+        <%= error %>
+    <% end %>
+
+    <div>
+        <%= form.label :nombre %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.label :segundo_nombre %>
+        <%= form.text_field :s_name %>
+    </div>
+
+    <div>
+        <%= form.label :apellido_paterno %>
+        <%= form.text_field :lastname %>
+    </div>
+
+    <div>
+        <%= form.label :apellido_materno %>
+        <%= form.text_field :s_lastname %>
+    </div>
+
+    <div>
+        <%= form.label :rut %>
+        <%= form.text_field :rut %>
+    </div>
+
+    <div>
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+    </div>
+
+    <div>
+        <%= form.label :contraseña %>
+        <%= form.text_field :password %>
+    </div>
+
+    <div class="field">
+        <%= form.label :bloodtype_id, "Tipo de sangre" %>
+        <%= form.collection_select :bloodtype_id, @bloodtypes, :id, :name, prompt: "Selecciona tu tipo de sangre" %>
+    </div>
+
+    <div class="field">
+        <%= form.label :country_id, "País" %>
+        <%= form.collection_select :country_id, @countries, :id, :name, prompt: "Selecciona un país" %>
+     </div>
+
+        <%= form.submit %>
+<% end %>
