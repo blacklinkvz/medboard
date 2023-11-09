@@ -1,4 +1,4 @@
-<h1>Nuevo usuario</h1>
+<h1>Editar usuario</h1>
 
 <%= form_with model: @user do |form| %>
 
@@ -35,13 +35,15 @@
     <div>
         <%= form.label :contraseña %>
         <%= form.text_field :password %>
+    
     </div>
 
-    <div class="field">
-        <%= form.label :bloodtype_id, "Tipo de sangre" %>
-        <%= form.collection_select :bloodtype_id, @bloodtypes, :id, :name, prompt: "Selecciona tu tipo de sangre" %>
-    </div>
-
+        <div class="field">
+            <%= form.label :bloodtype_id, "Tipo de sangre" %>
+            <%= form.collection_select :bloodtype_id, @bloodtypes, :id, :name, prompt: "Selecciona tu tipo de sangre" %>
+        </div>
+    
+    
     <div class="field">
         <%= form.label :country_id, "País" %>
         <%= form.collection_select :country_id, @countries, :id, :name, prompt: "Selecciona un país" %>

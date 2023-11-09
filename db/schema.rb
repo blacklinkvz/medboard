@@ -114,20 +114,24 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_010356) do
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "s_name"
-    t.string "lastname"
-    t.string "s_lastname"
-    t.string "rut"
-    t.string "email"
-    t.string "password"
+    t.string "lastname", null: false
+    t.string "s_lastname", null: false
+    t.string "rut", null: false
+    t.string "email", null: false
+    t.string "password_digest"
     t.string "passport"
     t.bigint "bloodtype_id", null: false
     t.bigint "country_id", null: false
+    t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bloodtype_id"], name: "index_users_on_bloodtype_id"
     t.index ["country_id"], name: "index_users_on_country_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["passport"], name: "index_users_on_passport", unique: true
+    t.index ["rut"], name: "index_users_on_rut", unique: true
   end
 
   add_foreign_key "contacts", "countries"

@@ -9258,4 +9258,3 @@ Disease.create([
   { code: 'Z999',  name: "DEPENDENCIA DE MÁQUINA Y DISPOSITIVO CAPACITANTE, NO ESPECIFICADA" }
 
 ])
-
